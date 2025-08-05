@@ -49,6 +49,7 @@ public class MyConfig {
                 .anyRequest().permitAll()
             )
             .formLogin()
+            .loginPage("/signin")
             .and()
             .csrf().disable();
 

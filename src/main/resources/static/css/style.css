@@ -22,3 +22,47 @@ section{
 	padding: 20px;
 	background: #ffffff;
 }
+
+/*login page css*/
+/* login page css */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #17a2b8;
+  height: 100vh;
+  color: white;
+}
+
+#login .container #login-row #login-column #login-box {
+  max-width: 600px;
+  border: 2px solid white;
+  background-color: black;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+}
+
+#login-form label {
+  color: white;
+}
+
+.custom-input {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.custom-input:focus {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: none;
+}
+
+#register-link a {
+  color: #00bcd4;
+}
+
+.alert {
+  margin-top: 15px;
+}

@@ -100,4 +100,11 @@ public class HomeController {
 	    }
 	}
 
+	//login page
+	@GetMapping("/signin")
+	public String customLogin(Model model)
+	{
+		model.addAttribute("title", "Login Page - Smart Contact Manager");
+	    return "login";	
+	}
 }
