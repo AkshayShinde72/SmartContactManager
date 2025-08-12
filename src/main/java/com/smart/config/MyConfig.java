@@ -50,6 +50,8 @@ public class MyConfig {
             )
             .formLogin()
             .loginPage("/signin")
+            .loginProcessingUrl("/dologin")
+            .defaultSuccessUrl("/user/index")
             .and()
             .csrf().disable();
 

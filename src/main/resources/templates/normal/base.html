@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.rtl.min.css" integrity="sha384-Xbg45MqvDIk1e563NLpGEulpX6AvL404DP+/iCgW9eFa2BqztiwTexswJo2jLMue" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" th:href="@{/css/style.css}" />
     <title th:text="${title}">Base html</title>
   </head>
@@ -27,16 +28,12 @@
           <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
         </li>
         
-        <li class="nav-item">
-          <a class="nav-link" href="#" th:href="@{/about}">About</a>
-        </li>
-         
-        <li class="nav-item">
-          <a class="nav-link"  th:href="@{/signin}">Login</a>
+        <li class="nav-item me-1">
+          <span class="nav-link text-white" th:text="${user.name}">User</span>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" aria-disabled="true" th:href="@{/signup}">Signup</a>
+          <a class="nav-link" aria-disabled="true" th:href="@{/logout}">Logout</a>
         </li>
       </ul>
       
@@ -44,9 +41,34 @@
   </div>
 </nav>
 <!--end of navbar-->
-    
-    <div th:replace="${content}"></div>
+  
 
+   
+  <!-- this is sidebar -->
+  <div class="sidebar">
+	  
+	  <span onClick = "toggleSidebar()" class="crossBtn">&times;</span>
+	  
+	  <a href="#" class="item"><i class="fa-solid fa-house"></i> Home</a>
+	   <a href="#" class="item"><i class="fa-regular fa-address-book"></i> View Contacts</a>
+	   <a href="#" class="item"><i class="fa-solid fa-plus"></i> Add Contact</a>
+	   <a href="#" class="item"><i class="fa-solid fa-user"></i> Your Profile</a>
+	   <a href="#" class="item"><i class="fa-solid fa-gear"></i> Settings</a>
+	   <a href="#" class="item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+	   <div class="divider"></div>
+  </div>
+  <!--end sidebar-->
+  
+ <!-- Content -->
+<div class="content">
+    <i class="fa-solid fa-bars m-3 text-dark" onclick="toggleSidebar()"></i>
+    <div th:replace="${content}"></div>
+</div>
+  <!--end content area-->
+   
+   
+   
+   
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
