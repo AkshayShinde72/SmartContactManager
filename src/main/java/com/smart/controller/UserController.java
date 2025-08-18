@@ -17,10 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.smart.dao.UserRepository;
 import com.smart.entities.Contact;
 import com.smart.entities.User;
+import com.smart.helper.Message;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/user")
@@ -62,7 +66,8 @@ public class UserController {
 	public String processContact(
 			@ModelAttribute Contact contact
 			,@RequestParam("profileImage") MultipartFile file
-			,Principal principal){
+			,Principal principal
+			,RedirectAttributes redirectAttributes){
 
 		try {
 
@@ -86,11 +91,17 @@ public class UserController {
 
 			this.userRepository.save(user);
 			System.out.println("Added contact to database");
+			//Message success
+			 redirectAttributes.addFlashAttribute("message", new Message("Your contact is added || Add more.", "success"));
+		    
 		}catch (Exception e) {
 			System.out.println("ERROR : "+e.getMessage());
 			e.printStackTrace();
+			//Message error
+			  redirectAttributes.addFlashAttribute("message", new Message("Have error try again", "error"));
 		}
-		return "normal/add_contact_form";
+		return "redirect:/user/add-contact";
+
 
 	}
 }

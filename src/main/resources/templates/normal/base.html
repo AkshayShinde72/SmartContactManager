@@ -60,14 +60,19 @@
   <!--end sidebar-->
   
  <!-- Content -->
-<div class="content mt-5">
+  <div class="content mt-5">
     <i class="fa-solid fa-bars m-3 text-dark" onclick="toggleSidebar()"></i>
+    
+     <!-- Message Box -->
+    <div th:if="${message}" class="Container">
+        <div th:classappend="${'alert-' + message.type}" class="alert alert-success text-center">
+        <span th:text="${message.content}"></span>
+      </div>
+    </div>
+
     <div th:replace="${content}"></div>
 </div>
   <!--end content area-->
-   
-   
-   
    
     <!-- Optional JavaScript; choose one of the two! -->
 
