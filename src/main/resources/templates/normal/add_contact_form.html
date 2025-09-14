@@ -29,7 +29,7 @@
                                     <span class="input-group-text">
                                         <i class="fa fa-plus"></i>
                                     </span>
-                                    <input type="text" id="name" name="name"
+                                    <input required type="text" id="name" name="name"
                                            placeholder="Enter name here" class="form-control">
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                                     <span class="input-group-text">
                                         <i class="fa fa-user-alt"></i>
                                     </span>
-                                    <input type="text" id="secondName" name="secondName"
+                                    <input required type="text" id="secondName" name="secondName"
                                            placeholder="Enter nick name here" class="form-control">
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                                     <span class="input-group-text">
                                         <i class="fas fa-envelope"></i>
                                     </span>
-                                    <input type="email" id="email" name="email"
+                                    <input required type="email" id="email" name="email"
                                            placeholder="Enter nick here" class="form-control">
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                     <span class="input-group-text">
                                         <i class="fa fa-phone"></i>
                                     </span>
-                                    <input type="text" id="phone" name="phone"
+                                    <input required min="10" type="number" id="phone" name="phone"
                                            placeholder="Enter phone number" class="form-control">
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                     <span class="input-group-text">
                                         <i class="fa fa-briefcase"></i>
                                     </span>
-                                    <input type="text" id="work" name="work"
+                                    <input required type="text" id="work" name="work"
                                            placeholder="Enter work here" class="form-control">
                                 </div>
                             </div>
@@ -102,6 +102,19 @@
                         </form>
 
                     </div>
+                    
+              <!-- TinyMCE from Tiny.cloud -->
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+  tinymce.init({
+    selector: '#description',
+    plugins: 'lists link image code',
+    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
+    height: 400
+  });
+</script>
+                    
                 </div>
             </div>
         </div>
