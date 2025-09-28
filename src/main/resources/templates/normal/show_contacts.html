@@ -25,12 +25,20 @@
 	  
 	<tr th:each = "c : ${contacts}"
     <tr class="text-center">
-      <th scope="row" th:text="${'CM2025'+c.cId}">1</th>
-     <td th:text="${c.name + ' (' + c.secondName + ')'}"></td>
-      <td th:text="${c.email}"></td>
+     <th scope="row" th:text="${'SCMUSER'+c.cId}">1</th>
+     
+     <td>
+		 <img src = "" class="my_profile_picture" th:src="@{'/img/'+${c.image}}" alt="profile-photo"/>
+		 <span th:text="${c.name + ' (' + c.secondName + ')'}"> </span> 
+     </td> 
+     
+      <td>
+		<a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}"><span th:text="${c.email}"></span></a>   
+	  </td>
+	  
       <td th:text="${c.phone}"></td>
       <td>
-		  <button class = "btn btn-danger btn-sm" th:href="@{'/delete/' + ${c.cId}}">Delete</button>
+		  <a th:href="@{'/user/delete/'+${c.cId}}" class = "btn btn-danger btn-sm">Delete</a>
 		   <button class = "btn btn-primary btn-sm">Update</button>
 		  
 	  </td>
@@ -38,6 +46,36 @@
     
   </tbody>
 </table>
+
+<!-- pagination -->
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+
+    <!-- Previous -->
+    <li th:classappend="${currentPage == 0} ? ' disabled' : ''" class="page-item">
+      <a class="page-link" th:href="@{'/user/show-contacts/' + ${currentPage-1}}" tabindex="-1">Previous</a>
+    </li>
+
+    <!-- Page numbers -->
+    <li th:each="i : ${#numbers.sequence(1, totalPages)}"
+        th:classappend="${currentPage + 1 == i} ? ' active' : ''"
+        class="page-item">
+      <a class="page-link" th:href="@{'/user/show-contacts/' + ${i-1}}">
+        <span th:text="${i}"></span>
+      </a>
+    </li>
+
+    <!-- Next -->
+    <li th:classappend="${currentPage + 1 == totalPages} ? ' disabled' : ''" class="page-item">
+      <a class="page-link" th:href="@{'/user/show-contacts/' + ${currentPage+1}}">Next</a>
+    </li>
+
+  </ul>
+</nav>
+
+
+<br>
+<br>
 </div>
 	</section>
 </body>
